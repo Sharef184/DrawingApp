@@ -102,8 +102,8 @@ function saveImage() {
 function readFile(input) {
     var reader = new FileReader();
     reader.onload = function() {
-    // dataURL = event.target.result
-    dataURL = event.srcElement.result;
+
+    dataURL = event.target.result || event.srcElement.result;
     img = new Image();
 
     img.onload = function() {
