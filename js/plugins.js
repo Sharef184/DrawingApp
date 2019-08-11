@@ -1,9 +1,9 @@
 var rectangleButton = document.getElementById("rectangle");
     circleButton = document.getElementById("circle");
     saveButton = document.getElementById("save");
-    loadFile = document.getElementById("load-file");
+    loadImage = document.getElementById("load-image");
     canvas = document.getElementById("canvas");
-    checkBox = document.getElementById("checkbox");
+    clearAndLoadCheckBox = document.getElementById("clear-and-load-check-box");
     ctx = canvas.getContext("2d");
 
 canvas.width = 800;
@@ -86,7 +86,8 @@ function drawRandomCircle() {
 // SAVE
 function saveImage() {
   var image = canvas.toDataURL("image/png");
-  var imageName = prompt("Save as :");
+      imageName = prompt("Save as :");
+
   if (imageName == null) {
     return false;
   }
@@ -98,12 +99,12 @@ function saveImage() {
 }///////////////////////////////////// \SAVE
 
 
-// Read File
-function readFile(input) {
+// Read Image
+function readImage(input) {
     var reader = new FileReader();
     reader.onload = function() {
-
-    dataURL = event.target.result || event.srcElement.result;
+    // dataURL = event.target.result
+    dataURL = event.srcElement.result;
     img = new Image();
 
     img.onload = function() {
@@ -116,7 +117,7 @@ function readFile(input) {
     };
 
     img.src = dataURL;
-    loadFile.value = '';
+    loadImage.value = '';
   };
   reader.readAsDataURL(input.files[0]);
 } /////////////////////////////////////////////// \Read File
@@ -125,7 +126,7 @@ function readFile(input) {
 // Show And Hide 'Clear &' Span
 function showHideSpan() {
   var clearSpan = document.getElementById("clear-span");
-  if (checkBox.checked == true){
+  if (clearAndLoadCheckBox.checked == true){
     clearSpan.style.display = "inline";
   } else {
      clearSpan.style.display = "none";
@@ -135,40 +136,38 @@ function showHideSpan() {
 
 // Clear And Load
 function clearAndLoad() {
-  if (checkBox.checked == true){
+  if (clearAndLoadCheckBox.checked == true){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    readFile(loadFile);
+    readImage(loadImage);
   } else {
-     readFile(loadFile);
+     readImage(loadImage);
   }
 }//////////////////////////////////// \Clear And Load
 
 
-// Rectangle Button 'On Click'
+// Click Handlers
 rectangleButton.addEventListener("click", function() {
   drawRandomRectangle();
 });
 
-// Circle Button 'On Click'
 circleButton.addEventListener("click", function() {
   drawRandomCircle();
 });
 
-// Save Button 'On Click'
 saveButton.addEventListener("click", function() {
   saveImage();
 });
 
-// Load Button 'On Change'
-loadFile.addEventListener("change", function() {
+loadImage.addEventListener("change", function() {
   clearAndLoad();
 });
 
-// CheckBox 'On Click'
-checkBox.addEventListener("click", function() {
+clearAndLoadCheckBox.addEventListener("click", function() {
   showHideSpan();
 });
+///////////////////////// \Click Handlers
+
 
 // Copyright
 var currentYear = new Date().getFullYear();
-document.getElementById("footer").innerHTML = '&copy; Copyright ' + currentYear + ' - Oracle';
+document.getElementById("footer").innerHTML = '&copy; Copyright ' + currentYear + ' - SharifKhlief';

@@ -60,10 +60,9 @@ canvas {
 }
 
 .logo {
-  display: block;
-  width: 160px;
-  height: 70px;
-  margin: 0 auto;
+  margin-top: 15px;    
+  text-align: center; 
+  color: #5a5f73;
 }
 
 .container {
@@ -73,8 +72,9 @@ canvas {
 }
 
 .headline {
-  padding: 15px 0;
+  padding: 10px 0;
   text-align: center;
+  font-family: cursive, sans-serif; 
 }
 
 .toolbar {
@@ -112,7 +112,7 @@ canvas {
     left: 0;
 }
 
-#load-file {
+#load-image {
   width: 0.1px;
   height: 0.1px;
   opacity: 0;
@@ -121,7 +121,7 @@ canvas {
   z-index: -1;
 }
 
-#checkbox {
+#clear-and-load-check-box {
   position: absolute;
   margin: 1px 10px;
   display: none;
@@ -151,7 +151,7 @@ footer {
     width: 768px;
   }
 
-  #checkbox {
+  #clear-and-load-check-box {
     display: inline;
   }
 
