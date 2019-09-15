@@ -60,9 +60,9 @@ canvas {
 }
 
 .logo {
-  margin-top: 15px;    
-  text-align: center; 
-  color: #5a5f73;
+  display: block;
+  margin: 0 auto;
+  width: 150px;
 }
 
 .container {
@@ -74,7 +74,7 @@ canvas {
 .headline {
   padding: 10px 0;
   text-align: center;
-  font-family: cursive, sans-serif; 
+  font-family: cursive, sans-serif;
 }
 
 .toolbar {
